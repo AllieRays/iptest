@@ -1,12 +1,10 @@
 steps:
   - name: Install Profile Drupal with Plugin Demo
     plugin: Drupal
-    installArgs: "--root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear' --site-name='Install Profile Drupal Plugin Demo'"
+    installArgs: "--site-name='Install Profile Drupal Plugin Demo'"
     clearCaches: true
     profileName: bear
     runInstall: true
 
   - name: Set file directory permissions
     command: 'chown -R www-data:www-data /var/www/html/sites/default/files'
-  - name: Run behat tests
-    command: 'cd /var/www/html/profiles/bear/tests ; composer install ; ./bin/behat --profile probo --tags "~@javascript"'
