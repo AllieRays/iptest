@@ -1,6 +1,7 @@
 steps:
   - name: Probo site setup
     plugin: Drupal
+    makeFile: build-bear.make
     installArgs: "--site-name='Install Profile Demo'"
     clearCaches: true
     profileName: bear
