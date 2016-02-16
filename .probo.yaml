@@ -1,8 +1,11 @@
 steps:
-  - name: Run the profile script
-    command: './$SRC_DIR/.probo-profile-build.sh'
-  - name: Run install
-    command: "drush site-install --root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear'"
+  - name: Install Profile Drupal with Plugin Demo
+    plugin: Drupal
+    installArgs: "--root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear' --site-name='Install Profile Drupal Plugin Demo'"
+    clearCaches: true
+    profileName: bear
+    runInstall: true
+
   - name: Set file directory permissions
     command: 'chown -R www-data:www-data /var/www/html/sites/default/files'
   - name: Run behat tests
